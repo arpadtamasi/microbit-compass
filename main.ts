@@ -1,4 +1,4 @@
-let brightnessSetting = 3
+let brightnessSetting = 0
 let compassEnabled = true
 
 function getCosineSimilarity(deg1: number, deg2: number) {
@@ -6,14 +6,14 @@ function getCosineSimilarity(deg1: number, deg2: number) {
 }
 
 input.onButtonPressed(Button.A, function () {
-    if (brightnessSetting > 1) {
+    if (brightnessSetting > 0) {
         brightnessSetting = brightnessSetting - 1
     }
     showBrightness()
 })
 
 input.onButtonPressed(Button.B, function () {
-    if (brightnessSetting < 5) {
+    if (brightnessSetting < 4) {
         brightnessSetting = brightnessSetting + 1
     }
     showBrightness()
@@ -22,8 +22,8 @@ input.onButtonPressed(Button.B, function () {
 function showBrightness() {
     compassEnabled = false
     basic.clearScreen()
-    led.plotBarGraph(brightnessSetting, 5)
-    basic.pause(1000)
+    led.plotBarGraph(brightnessSetting, 4)
+    basic.pause(200)
     compassEnabled = true
 }
 
